@@ -1,6 +1,7 @@
 score=0
 #put all question in a list
 quiz_data = [
+    #1
     {"question": "Tākitimu was renowned as a highly ________ waka. "
     "A.sacred B. narrow C. fast D. heavy ", "answer": "A"},
     {"question": "Only ________ were permitted to travel aboard this waka. "
@@ -16,9 +17,28 @@ quiz_data = [
     "D. Te Moana-nui-a-Kiwa", "answer": "A"},
     {"question": "Which high priest (tohunga) was said to have carried "
     "the sacred knowledge (whare wānanga) aboard Tākitimu? "
-    "A.sacred B. narrow C. fast D. heavy ", "answer": "A"},
+    "A. Ngātoroirangi B. Ruawharo C. Tūtāmure D. Hoturapa ", "answer": "B"},
+    #6
+    {"question": "  According to tradition, which physical feature did "
+     "Tākitimu turn into after arriving in Aotearoa? "
+    "A. A large pā (fortress) B. A sacred lake "
+    "C. A mountain range in Southland D. A giant kauri tree ", "answer": "C"},
+    {"question": "Which of the following was strictly forbidden on Tākitimu "
+    "during its voyage to maintain its sanctity?"
+    "A. Women B. Cooked food C. Any form of metal D. Dogs", "answer": "B"},
+    {"question": "What was the name of the sacred stone (mauri) placed on "
+    "Tākitimu to protect the waka and its crew?"
+    "A. Te Whatu o Tākitimu B. Hine-tākihia C. Te Puna o Te Ao D. "
+    "Rangiātea ", "answer": "A"},
+    {"question": "According to certain oral traditions, why did Tākitimu "
+    "depart from Hawaiki? "
+    "A. A sudden food shortage B. A dispute over sacred adzes and tapu violations "
+    "C. To escape a great flood D. To follow the seasonal migration of birds ", "answer": "B"},
+    {"question": "Which modern Māori iwi (tribe), alongside Ngāti Kahungunu, traces its primary "
+    "ancestry back to Tākitimu through the priest Ruawharo?"
+    "A. Ngāti Porou B. Ngāi Tūhoe C. Ngāti Raukawa D. Ngāti Rangitāne", "answer": "D"},
     ]
-#using a for loop to collect user's answer
+#using a for loop to collect user's answer and give feedback
 for item in quiz_data:
     user_input = input(f"{item['question']} ")
     if user_input.strip().lower() == item['answer'].lower():
@@ -26,3 +46,8 @@ for item in quiz_data:
         print("Correct!")
     else:
         print(f"Almost there! The correct answer was {item['answer']}.")
+#print the result
+if score == 0:
+    print('Review it again before you try again. You can do it! Keep it up!')
+elif score>0 and score<6:
+    print()
