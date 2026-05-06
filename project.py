@@ -40,14 +40,27 @@ quiz_data = [
     ]
 #using a for loop to collect user's answer and give feedback
 for item in quiz_data:
+    #print(item)
     user_input = input(f"{item['question']} ")
-    if user_input.strip().lower() == item['answer'].lower():
+    while True:
+        if user_input.strip().lower() in ['a', 'b', 'c', 'd']:
+          user_input = True
+          break
+        else:
+          print('Please enter with A, B C or D.')
+      
+    if user_input.strip().lower() == item['answer'].lower() :
         score += 1
         print("Correct!")
     else:
-        print(f"Almost there! The correct answer was {item['answer']}.")
+        print(f"Almost there! The correct answer is {item['answer']}.")
+      
 #print the result
 if score == 0:
     print('Review it again before you try again. You can do it! Keep it up!')
 elif score>0 and score<6:
-    print()
+    print('You got a lot of questions right. Review them and do them again, you will get a higher gread!')
+elif score > 5 and score < 10:
+    print('You got most of it right! Reviewing it will give you a much better result!')
+else:
+    print("You're a real expert! You got all the questions right!")
