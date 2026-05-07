@@ -1,5 +1,5 @@
 score=0
-#put all question in a list
+#put all questions in a list
 quiz_data = [
     #1
     {"question": "Tākitimu was renowned as a highly ________ waka. "
@@ -38,17 +38,16 @@ quiz_data = [
     "ancestry back to Tākitimu through the priest Ruawharo?"
     "A. Ngāti Porou B. Ngāi Tūhoe C. Ngāti Raukawa D. Ngāti Rangitāne", "answer": "D"},
     ]
-#using a for loop to collect user's answer and give feedback
+#Using a for loop to collect user's answers.
 for item in quiz_data:
-    #print(item)
-    user_input = input(f"{item['question']} ")
+#Checking if the answers are in a,b,c or d.
     while True:
+        user_input = input(f"{item['question']} ")
         if user_input.strip().lower() in ['a', 'b', 'c', 'd']:
-          user_input = True
-          break
+            break
         else:
           print('Please enter with A, B C or D.')
-      
+#Determine if the answer is correct and accumulate the score.  
     if user_input.strip().lower() == item['answer'].lower() :
         score += 1
         print("Correct!")
