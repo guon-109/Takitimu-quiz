@@ -2,19 +2,25 @@ score=0
 #put all questions in a list
 quiz_data = [
     #1
-    {"question": "Tākitimu was renowned as a highly ________ waka. "
-    "A.sacred B. narrow C. fast D. heavy ", "answer": "A"},
+    {"question": "Tākitimu was renowned as a highly ________ waka. \n"
+    "A.sacred \nB.narrow \nC. fast \nD. heavy \n",
+    'guide':'Please enter your '
+    'answer with A,B, C or D below.\n', "answer": "A"}, 
     {"question": "Only ________ were permitted to travel aboard this waka. "
-    "A.women B.food C. specific chiefs and priests D. cooked food", "answer": "C"},
+    "A.women B.food C. specific chiefs and priests D. cooked food", 
+    'guide':'Please enter your '
+    'answer with A,B, C or D below.\n', "answer": "C"},
     {"question": "The sacredness of Te Awhiorangi"
     " (the famous adze associated with Tākitimu) was such that it "
     "was never used for ________."
     "A. ceremonial purposes B. utilitarian purposes C. religious tasks "
-    "D. carving new waka ", "answer": "B"},
+    "D. carving new waka ", 'guide':'Please enter your '
+    'answer with A,B, C or D below.\n', "answer": "B"},
     {"question": "Tākitimu was taken to the great waters "
     "of ________ to test the seaworthiness of the vessel."
     "A. Piko-piko-i-whiti B. Lake Wairarapa C. Hawaiki "
-    "D. Te Moana-nui-a-Kiwa", "answer": "A"},
+    "D. Te Moana-nui-a-Kiwa", 'guide':'Please enter your '
+    'answer with A,B, C or D below.\n', "answer": "A"},
     {"question": "Which high priest (tohunga) was said to have carried "
     "the sacred knowledge (whare wānanga) aboard Tākitimu? "
     "A. Ngātoroirangi B. Ruawharo C. Tūtāmure D. Hoturapa ", "answer": "B"},
@@ -38,24 +44,22 @@ quiz_data = [
     "ancestry back to Tākitimu through the priest Ruawharo?"
     "A. Ngāti Porou B. Ngāi Tūhoe C. Ngāti Raukawa D. Ngāti Rangitāne", "answer": "D"},
     ]
-#Using a for loop to collect user's answers.
-for item in quiz_data:
-#Checking if the answers are in a,b,c or d.
+
+for item in quiz_data:  #Using a for loop to collect user's answers.
     while True:
-        user_input = input(f"{item['question']} ")
-        if user_input.strip().lower() in ['a', 'b', 'c', 'd']:
+        user_input = input(f"{item['question']}{item['guide']} ")
+        if user_input.strip().lower() in ['a', 'b', 'c', 'd']:#Checking if the answers are in a,b,c or d.
             break
         else:
-          print('Please enter with A, B C or D.')
-#Determine if the answer is correct and accumulate the score.  
-    if user_input.strip().lower() == item['answer'].lower() :
+          print('Please enter with A, B C or D.')  
+    if user_input.strip().lower() == item['answer'].lower() : #Determine if the answer is correct and accumulate the score.
         score += 1
         print("Correct!")
+        print()
     else:
         print(f"Almost there! The correct answer is {item['answer']}.")
-      
-#print the result
-if score == 0:
+        print()
+if score == 0: #print the result
     print('Review it again before you try again. You can do it! Keep it up!')
 elif score>0 and score<6:
     print('You got a lot of questions right. Review them and do them again, you will get a higher gread!')
