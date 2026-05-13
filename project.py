@@ -63,15 +63,18 @@ quiz_data = [
     'guide':'Please enter your '
     'answer with A, B, C or D below.\n',"answer": "D"},
     ]
-
-for item in quiz_data:  #Using a for loop to collect user's answers.
+#Using a for loop to collect user's answers.
+for item in quiz_data: 
     while True:
         user_input = input(f"{item['question']}\n{item['guide']} ")
-        if user_input.strip().lower() in ['a', 'b', 'c', 'd']:#Checking if the answers are in a,b,c or d.
+#Checking if the answers are in a,b,c or d.
+        if user_input.strip().lower() in ['a', 'b', 'c', 'd']:
             break
         else:
-          print('Please enter with A, B C or D.')  
-    if user_input.strip().lower() == item['answer'].lower():#Determine if the answer is correct and accumulate the score.
+          print('Please enter with A, B C or D.')
+          print()
+#Determine if the answer is correct and accumulate the score.
+    if user_input.strip().lower() == item['answer'].lower():
         score += 1
         print("Correct!")
         print()
@@ -79,11 +82,13 @@ for item in quiz_data:  #Using a for loop to collect user's answers.
         print(f"Almost there! The correct answer is {item['answer']}.")
         print()
 print('Congratulations on completing this!')
-if score == 0: #print the result
+#print the result
+print(f'Your score is {score} out of 10.') 
+if score == 0: 
     print('Review it again before you try again. You can do it! Keep it up!')
-elif score>0 and score<6:
-    print('You got a lot of questions right. Review them and do them again, you will get a higher gread!')
-elif score > 5 and score < 10:
+elif score > 0 and score < 6:
+    print('Review them and do them again, you will get a higher gread!')
+elif score < 10:
     print('You got most of it right! Reviewing it will give you a much better result!')
 else:
     print("You're a real expert! You got all the questions right!")
